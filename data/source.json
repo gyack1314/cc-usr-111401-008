@@ -1,0 +1,39 @@
+{
+  "rows": [
+    {
+      "row_id": "a",
+      "team": null,
+      "tool": "chat",
+      "plan": "pro",
+      "amount": 5,
+      "user": "u1"
+    },
+    {
+      "row_id": "b",
+      "team": "ops",
+      "tool": "chat",
+      "plan": "pro",
+      "amount": 5,
+      "user": "u1"
+    },
+    {
+      "row_id": "c",
+      "team": "ops",
+      "tool": "chat",
+      "plan": "basic",
+      "amount": null,
+      "user": "u2"
+    }
+  ],
+  "sets": [
+    [
+      "team",
+      "tool"
+    ],
+    [
+      "team"
+    ],
+    [],
+    []
+  ]
+}
