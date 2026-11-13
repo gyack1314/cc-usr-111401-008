@@ -6,10 +6,12 @@ from .aggregate import inspect
 
 def main():
     parser=argparse.ArgumentParser(description='读取并核对本地资料')
-    parser.add_argument('--source',default='data/source.json');args=parser.parse_args()
+    parser.add_argument('--source',default='data/source.json')
+    parser.add_argument('--budget',type=int,default=None,help='去重状态总条目预算，默认沿用执行层')
+    args=parser.parse_args()
     data=json.loads(Path(args.source).read_text(encoding='utf-8'))
     with tempfile.TemporaryDirectory() as temporary:
         root=Path(temporary);store=ObjectStore(root/'objects')
-        result=inspect(data,store,root)
+        result=inspect(data,store,root,budget=args.budget) if args.budget else inspect(data,store,root)
         print(json.dumps(result,ensure_ascii=False,sort_keys=True))
 if __name__=='__main__':main()
